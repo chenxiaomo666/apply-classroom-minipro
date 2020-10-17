@@ -1,0 +1,25 @@
+/* pages/classroomIndex/classroomIndex.wxss */
+.head {
+  color: black;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 30px; */
+}
+
+.body {
+  margin-top: 50px;
+}
+
+.item {
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  height: 50px;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 10px;
+  border: 1px solid #abbcbc;
+  border-radius: 10px;
+}
+
