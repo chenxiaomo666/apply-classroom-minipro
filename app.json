@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/classroomIndex/classroomIndex",
     "pages/bindInfo/bindInfo",
-    "pages/roomInfo/roomInfo"
+    "pages/roomInfo/roomInfo",
+    "pages/roomDateInfo/roomDateInfo"
   ],
   "window":{
     "backgroundTextStyle":"light",

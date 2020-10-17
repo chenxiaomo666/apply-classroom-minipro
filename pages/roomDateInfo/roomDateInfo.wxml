@@ -1,0 +1,9 @@
+<view style="width: 100%; height: 30px;"></view>
+<view class="head">教室{{roomName}}使用情况</view>
+<view class="describe">（点击查看具体某天的使用情况）</view>
+
+<view class="body">
+      <view class="item" wx:for="{{date_list}}" wx:key="name">
+            <view bindtap="dayInfo" data-delayday="{{item.delay_day}}">{{item.date}}  星期{{item.weekday}}</view>
+      </view>
+</view>

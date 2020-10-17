@@ -1,5 +1,5 @@
-// pages/classroomIndex/classroomIndex.js
-var app = getApp()
+// pages/roomDateInfo/roomDateInfo.js
+const app = getApp()
 Page({
 
   /**
@@ -9,26 +9,27 @@ Page({
 
   },
 
-  roomInfo(e){
-    var roomID = e.currentTarget.dataset.roomid;
-    var roomName = e.currentTarget.dataset.roomname;
-
-    wx.navigateTo({
-      url: '/pages/roomDateInfo/roomDateInfo?roomID='+roomID+'&roomName='+roomName,
-    })
+  dayInfo(e){
+    console.log(e);
+    var delayDay = e.currentTarget.dataset.delayday;
+    console.log(delayDay);
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var roomID = options.roomID;
+    var roomName = options.roomName;
     var that = this;
     wx.request({
-      url: app.globalData.serveHost + '/cxm/alternativeroom/list',
+      url: app.globalData.serveHost + '/cxm/tendate/list',
       method: "GET",
       success(res){
         that.setData({
-          room_list: res.data.result.room_list
+          date_list : res.data.result.date_list,
+          roomID: roomID,
+          roomName: roomName
         })
       }
     })
