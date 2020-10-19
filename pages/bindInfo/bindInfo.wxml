@@ -4,10 +4,10 @@
 
   <view class="body">
     <view class="preInputText"> 
-      姓名：<input placeholder="例如：陈小陌" class="inputType" bindinput="nameInput"></input>
+      姓    名：<input placeholder="例如：陈小陌" class="inputType" bindinput="nameInput"></input>
     </view>
     <view class="preInputText"> 
-      电话：<input placeholder="例如：13788886666" class="inputType" bindinput="phoneInput"></input>
+      手机号：<input placeholder="例如：13788886666" class="inputType" bindinput="phoneInput"></input>
     </view>
     
     <button bindtap="submit">提交</button>

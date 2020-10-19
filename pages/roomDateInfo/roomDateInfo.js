@@ -10,9 +10,11 @@ Page({
   },
 
   dayInfo(e){
-    console.log(e);
+    var that = this;
     var delayDay = e.currentTarget.dataset.delayday;
-    console.log(delayDay);
+    wx.navigateTo({
+      url: '/pages/roomDayInfo/roomDayInfo?delayDay='+delayDay+'&roomID='+that.data.roomID+'&roomName='+that.data.roomName,
+    })
   },
 
   /**

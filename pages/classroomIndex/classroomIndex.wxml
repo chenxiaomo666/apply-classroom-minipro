@@ -2,7 +2,7 @@
 <view class="head">请点击以下教室进入申请</view>
 
 <view class="body">
-      <view class="item" wx:for="{{room_list}}" wx:key="name">
-            <view bindtap="roomInfo" data-roomName="{{item.name}}" data-roomID="{{item.id}}">{{item.name}}</view>
+      <view bindtap="roomInfo" class="item" wx:for="{{room_list}}" wx:key="name"  data-roomName="{{item.name}}" data-roomID="{{item.id}}">
+            <view>{{item.name}}</view>
       </view>
 </view>

@@ -12,7 +12,7 @@ Page({
   roomInfo(e){
     var roomID = e.currentTarget.dataset.roomid;
     var roomName = e.currentTarget.dataset.roomname;
-
+    console.log(roomID, roomName)
     wx.navigateTo({
       url: '/pages/roomDateInfo/roomDateInfo?roomID='+roomID+'&roomName='+roomName,
     })

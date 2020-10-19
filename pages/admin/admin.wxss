@@ -1,0 +1,108 @@
+/* pages/index/index.wxss */
+page{
+  height:100%
+  }
+
+.head {
+  color: black;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 30px; */
+}
+
+.enter{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  width:50px;
+  height: 50px;
+  border: 1px solid #abbcbc;
+  border-radius: 10px;
+  font-size: 20px;
+  /* background-color: #00FFFF; */
+  margin-top: 200px;
+}
+
+.space {
+  border-top: 15px solid #F0F0F0;
+  border-bottom: 15px solid #F0F0F0;
+  
+}
+
+.piece {
+  border: 1px solid #abbcbc;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5px;
+}
+
+.agreeContain {
+  width: 90%;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.advise {
+  width: 25%;
+  margin-left: 18%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  height: 22px;
+  border: 1px solid #abbcbc;
+  border-radius: 6px;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.space .user-info {
+  height: 30px;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.space .user-info image {
+  width: 30px;
+  height: 30px;
+  border-radius: 36px;
+  vertical-align: middle;
+}
+
+.space .user-info text {
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.inputType{
+  border: 1px solid black;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.preInputText{
+  margin-top: 10px;
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.adminAbout {
+  width: 90%;
+  margin-left: 5%;
+  border: 1px solid #abbcbc;
+  border-radius: 6px;
+}
+
+.adminSubmit {
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  margin-bottom: 10px;
+  width:50px;
+  height: 50px;
+  border: 1px solid #abbcbc;
+  border-radius: 10px;
+  font-size: 20px;
+}

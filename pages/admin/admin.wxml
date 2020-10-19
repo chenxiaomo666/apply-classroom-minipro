@@ -1,0 +1,75 @@
+
+<view style="width: 100%; height: 15px;"></view>
+<block wx:if="{{userID==''}}">
+  <view class="head">请您先登录</view>
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="enter">登录</button>
+</block>
+
+<block wx:if="{{userID!=''}}">
+  <view class="space">
+    <view>申请中</view>
+    <view class="piece" wx:for="{{applying}}" wx:key="name">
+      <view>{{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}</view>
+      <view>申请理由：{{item.apply_reason}}</view>
+      <view>待审批</view>
+    </view>
+  </view>
+  
+  <view class="space">
+    <view>已申请</view>
+    <view class="piece" wx:for="{{applyed}}" wx:key="name">
+      <view>{{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}</view>
+      <view>申请理由：{{item.apply_reason}}</view>
+      <view>审批人：{{item.dispose_name}}</view>
+      <view>申请成功</view>
+    </view>
+  </view>
+
+  <view class="space">
+    <view>申请失败</view>
+    <view class="piece" wx:for="{{applyFail}}" wx:key="name">
+      <view>{{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}</view>
+      <view>申请理由：{{item.apply_reason}}</view>
+      <view>申请失败</view>
+    </view>
+  </view>
+</block>
+
+<block wx:if="{{userInfo.is_admin==1}}">
+  <view class="space">
+    <view>新的申请信息</view>
+    <view class="piece" wx:for="{{needDispose}}" wx:key="name">
+      <view>申请人{{item.user_name}}</view>
+      <view>时间：{{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}</view>
+      <view>教室：{{item.room_name}}</view>
+      <view>申请理由：{{item.apply_reason}}</view>
+      <view class="agreeContain">
+        <view class="advise" bindtap="agree" data-recordID="{{item.record_id}}">同意</view>
+        <view class="advise" bindtap="disagree" data-recordID="{{item.record_id}}">不同意</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="space">
+    <view>添加管理员：</view>
+    <view>请输入手机号或者微信号查询并添加</view>
+    <view class="adminAbout">
+      <view class="preInputText"> 
+        姓    名：<input placeholder="例如：陈小陌" class="inputType" bindinput="nameInput"></input>
+      </view>
+      <view class="preInputText"> 
+        手机号：<input placeholder="例如：13784197113" class="inputType" bindinput="phoneInput"></input>
+      </view>
+      <block wx:if="{{isFind==true}}">
+        <view class="user-info">
+            <image src="{{userFind.head_img}}"></image>
+            <text class="user-name">{{userFind.name}}</text>
+            <text>{{userFind.phone}}</text>
+        </view>
+      </block>
+      <button bindtap="userFind" class="adminSubmit">查询</button>
+      <button bindtap="adminAdd" class="adminSubmit">添加</button>
+    </view>
+  </view>
+
+</block>

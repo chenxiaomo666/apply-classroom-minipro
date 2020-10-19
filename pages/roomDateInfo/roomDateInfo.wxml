@@ -3,7 +3,7 @@
 <view class="describe">（点击查看具体某天的使用情况）</view>
 
 <view class="body">
-      <view class="item" wx:for="{{date_list}}" wx:key="name">
-            <view bindtap="dayInfo" data-delayday="{{item.delay_day}}">{{item.date}}  星期{{item.weekday}}</view>
+      <view bindtap="dayInfo" class="item" wx:for="{{date_list}}" wx:key="name" data-delayday="{{item.delay_day}}">
+            <view>{{item.date}}  星期{{item.weekday}}</view>
       </view>
 </view>
