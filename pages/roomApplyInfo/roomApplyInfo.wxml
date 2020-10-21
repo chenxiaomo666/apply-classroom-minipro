@@ -15,6 +15,6 @@
 </block>
 <block wx:if="{{record.apply_status==2}}">
   <view class="explain">    该教室已被申请，申请人为{{record.user_name}}, 申请理由如下，已被管理员{{disposeBy.name}}同意</view>
-  <view class="applyReason">    {{record.apply_reason}}</view>
+  <view class="applyReason">申请理由：    {{record.apply_reason}}</view>
 </block>
 

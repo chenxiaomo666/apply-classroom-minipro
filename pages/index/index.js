@@ -20,7 +20,7 @@ Page({
         wx.request({
           url: app.globalData.serveHost + '/cxm/user/query',
           data: {
-            js_code: res.code,
+            js_code: code,
             grant_type: "authorization_code"
           },
           method: "GET",
@@ -37,9 +37,12 @@ Page({
               })
             }
             else{
-              var userInfoStr = JSON.stringify(e.detail.userInfo);
+              var userInfo = e.detail.userInfo;
+              var nickName = userInfo.nickName;
+              var headImg = userInfo.avatarUrl;
+              var sex = userInfo.gender;
               wx.navigateTo({
-                url: '/pages/bindInfo/bindInfo?userInfo='+userInfoStr+'&openid='+res.data.open_id, // 进去绑定信息页面
+                url: '/pages/bindInfo/bindInfo?nickName='+nickName+'&openid='+res.data.open_id+'&headImg='+headImg+'&sex='+sex, // 进去绑定信息页面
               })
             }
           }

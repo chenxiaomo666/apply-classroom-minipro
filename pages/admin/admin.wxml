@@ -7,7 +7,7 @@
 
 <block wx:if="{{userID!=''}}">
   <view class="space">
-    <view>申请中</view>
+    <view>我的.申请中</view>
     <view class="piece" wx:for="{{applying}}" wx:key="name">
       <view>{{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}</view>
       <view>申请理由：{{item.apply_reason}}</view>
@@ -16,7 +16,7 @@
   </view>
   
   <view class="space">
-    <view>已申请</view>
+    <view>我的.已申请</view>
     <view class="piece" wx:for="{{applyed}}" wx:key="name">
       <view>{{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}</view>
       <view>申请理由：{{item.apply_reason}}</view>
@@ -26,10 +26,11 @@
   </view>
 
   <view class="space">
-    <view>申请失败</view>
+    <view>我的.申请失败</view>
     <view class="piece" wx:for="{{applyFail}}" wx:key="name">
       <view>{{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}</view>
       <view>申请理由：{{item.apply_reason}}</view>
+      <view>审批人：{{item.dispose_name}}</view>
       <view>申请失败</view>
     </view>
   </view>
@@ -51,8 +52,18 @@
   </view>
 
   <view class="space">
+    <view>所有已申请：</view>
+    <view class="piece" wx:for="{{allApplyed}}" wx:key="name">
+      <view>{{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}</view>
+      <view>申请理由：{{item.apply_reason}}</view>
+      <view>审批人：{{item.dispose_name}}</view>
+      <view>申请成功</view>
+    </view>
+  </view>
+
+  <view class="space">
     <view>添加管理员：</view>
-    <view>请输入手机号或者微信号查询并添加</view>
+    <view>请输入姓名或手机号查询并添加</view>
     <view class="adminAbout">
       <view class="preInputText"> 
         姓    名：<input placeholder="例如：陈小陌" class="inputType" bindinput="nameInput"></input>
@@ -69,6 +80,24 @@
       </block>
       <button bindtap="userFind" class="adminSubmit">查询</button>
       <button bindtap="adminAdd" class="adminSubmit">添加</button>
+    </view>
+  </view>
+
+  <view class="space">
+    <view>编辑可申请教室列表</view>
+    <view>已有教室列表</view>
+    <view class="item" wx:for="{{optionRoomList}}" wx:key="name">
+      <view class="roomList">
+        <view>{{item.name}}</view>
+        <view class="trueDel" bindtap="roomDel" data-roomid="{{item.id}}" style="background-color: red;">删除</view>
+      </view>
+    </view>
+    <view>
+      <view>添加教室</view>
+      <view class="preInputText"> 
+        教室名称：<input placeholder="例如：5054" class="inputType" bindinput="roomInput"></input>
+      </view>
+      <button bindtap="classAdd" class="classSubmit">添加</button>
     </view>
   </view>
 

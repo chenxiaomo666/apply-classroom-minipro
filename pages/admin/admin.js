@@ -20,6 +20,79 @@ Page({
     })
   },
 
+  roomInput(e){
+    this.setData({
+      roomName: e.detail.value
+    })
+  },
+
+  classAdd(){
+    var that = this;
+    if(that.data.roomName==null){
+      wx.showToast({
+        title: '教室名称为空！',
+        icon: "none",   //success,loading,none
+        duration: 2000,
+      })
+    }else{
+      wx.request({
+        url: app.globalData.serveHost + '/cxm/room/add',
+        method: "POST",
+        data: {
+          room_name: that.data.roomName
+        },
+        success(res){
+          if(res.data.is_ok==true){
+            wx.showToast({
+              title: '添加成功！',
+              icon: "success",   //success,loading,none
+              duration: 2000,
+            })
+            that.flush();
+          }else{
+            wx.showToast({
+              title: '添加失败！',
+              icon: "none",   //success,loading,none
+              duration: 2000,
+            })
+          }
+        }
+      })
+    }
+  },
+
+  roomDel(e){
+    var that = this;
+    var roomID = e.currentTarget.dataset.roomid;
+
+    wx.showModal({
+      title: '确认删除？',
+      content: '该操作不可逆，确认删除吗',
+      success (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.request({
+            url: app.globalData.serveHost + '/cxm/room/del',
+            method: "POST",
+            data: {
+              room_id: roomID
+            },
+            success(res){
+              wx.showToast({
+                title: '删除成功！',
+                icon: "none",   //success,loading,none
+                duration: 2000,
+              })
+              that.flush();
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
   userFind(){
     var that = this;
     wx.request({
@@ -101,7 +174,9 @@ Page({
             applying: res.data.result.applying,
             applyed: res.data.result.applyed,
             applyFail: res.data.result.apply_fail,
-            needDispose: res.data.result.need_dispose
+            needDispose: res.data.result.need_dispose,
+            optionRoomList: res.data.result.option_room_list,
+            allApplyed: res.data.result.all_applyed
           })
         }
       })
@@ -164,7 +239,7 @@ Page({
         wx.request({
           url: app.globalData.serveHost + '/cxm/user/query',
           data: {
-            js_code: res.code,
+            js_code: code,
             grant_type: "authorization_code"
           },
           method: "GET",
@@ -189,15 +264,21 @@ Page({
                     applying: res.data.result.applying,
                     applyed: res.data.result.applyed,
                     applyFail: res.data.result.apply_fail,
-                    needDispose: res.data.result.need_dispose
+                    needDispose: res.data.result.need_dispose,
+                    allApplyed: res.data.result.all_applyed
                   })
                 }
               })
             }
             else{
-              var userInfoStr = JSON.stringify(e.detail.userInfo);
+              var userInfo = e.detail.userInfo;
+              var nickName = userInfo.nickName;
+              var headImg = userInfo.avatarUrl;
+              var sex = userInfo.gender;
+              console.log(e.detail.userInfo);
+              console.log(userInfoStr);
               wx.navigateTo({
-                url: '/pages/bindInfo/bindInfo?userInfo='+userInfoStr+'&openid='+res.data.open_id, // 进去绑定信息页面
+                url: '/pages/bindInfo/bindInfo?nickName='+nickName+'&openid='+res.data.open_id+'&headImg='+headImg+'&sex='+sex, // 进去绑定信息页面
               })
             }
           }
@@ -226,7 +307,9 @@ Page({
             applying: res.data.result.applying,
             applyed: res.data.result.applyed,
             applyFail: res.data.result.apply_fail,
-            needDispose: res.data.result.need_dispose
+            needDispose: res.data.result.need_dispose,
+            optionRoomList: res.data.result.option_room_list,
+            allApplyed: res.data.result.all_applyed
           })
         }
       })
@@ -260,7 +343,9 @@ Page({
             applying: res.data.result.applying,
             applyed: res.data.result.applyed,
             applyFail: res.data.result.apply_fail,
-            needDispose: res.data.result.need_dispose
+            needDispose: res.data.result.need_dispose,
+            optionRoomList: res.data.result.option_room_list,
+            allApplyed: res.data.result.all_applyed
           })
         }
       })
@@ -301,7 +386,8 @@ Page({
             applying: res.data.result.applying,
             applyed: res.data.result.applyed,
             applyFail: res.data.result.apply_fail,
-            needDispose: res.data.result.need_dispose
+            needDispose: res.data.result.need_dispose,
+            allApplyed: res.data.result.all_applyed
           })
         }
       })

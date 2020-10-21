@@ -42,9 +42,9 @@ Page({
         data: {
           name: that.data.name,
           openid: that.data.openid,
-          nickname: that.data.userInfo.nickName,
-          head_img: that.data.userInfo.avatarUrl,
-          sex: that.data.userInfo.gender,
+          nickname: that.data.nickName,
+          head_img: that.data.headImg,
+          sex: that.data.sex,
           phone: that.data.phone,
           },
         success(res){
@@ -66,15 +66,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var userInfo = JSON.parse(options.userInfo);
-    var openid = options.openid;
-    var isChange = options.isChange;
     this.setData({
-      userInfo : userInfo,
-      openid : openid,
-      isChange: isChange,
-      headImg: userInfo.head_img,
-      imgChange: 0
+      openid : options.openid,
+      headImg: options.headImg,
+      nickName: options.nickName,
+      sex: options.sex
     });
   },
 
