@@ -54,6 +54,7 @@
   <view class="space">
     <view>所有已申请：</view>
     <view class="piece" wx:for="{{allApplyed}}" wx:key="name">
+      <view>申请人：{{item.user_name}}</view>
       <view>{{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}</view>
       <view>申请理由：{{item.apply_reason}}</view>
       <view>审批人：{{item.dispose_name}}</view>
