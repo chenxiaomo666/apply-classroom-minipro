@@ -1,0 +1,95 @@
+.head {
+  color: black;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 30px; */
+}
+
+.describe {
+  display: flex;
+  justify-content: center;
+}
+
+.inputType{
+  border: 1px solid #aaaaaa;
+  width: 90%;
+  height: 150px;
+  border-radius: 6px;
+  margin-top: 10px;
+  margin-left: 5%;
+  text-align: left;
+  font-size: 16px;
+  box-shadow: 2px 1px 1px 1px #ccceee;
+  padding: 5px;
+}
+.submit-button{
+  margin-top: 20px;
+  width: 60%;
+  height: 40px;
+  background-color: #dddddd;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin-left: 20%;
+  margin-bottom: 10px;
+}
+
+.explain{
+  color: #222222;
+}
+/* .preInputText{
+  display: flex;
+  border: 1px solid #abbcbc;
+  width: 90%;
+  padding: 3px;
+  margin-left: 5%;
+  margin-top: 25px;
+  border-radius: 5px;
+  box-shadow: 2px 1px 1px 1px #ccceee;
+} */
+.msg-body{
+  border: 1px solid #aaaaaa;
+  width: 90%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 30px;
+  margin-left: 5%;
+  text-align: left;
+  font-size: 16px;
+  box-shadow: 2px 1px 1px 1px #ccceee;
+  
+}
+.msg-infomation{
+  margin: 10px;
+  font-size: 14px;
+}
+.tips {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #aaaaaa;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+.tips-strong{
+  font-size: 14px;
+  font-weight: bold;
+}
+.strong-info{
+  font-weight: bold;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bolder;
+  margin-top: 30px;
+}
+.plain-hover{
+  position: relative;
+  top: 3rpx;
+  box-shadow:0px 0px 10px #bbbec4 inset; 
+}

@@ -1,0 +1,29 @@
+<view class="head">
+  <text>信息绑定</text>
+</view>
+<view class="body" hover-class="none" hover-stop-propagation="false">
+  <view class="adminAbout">
+    <view class="preInputText">
+      <div class="name">姓  名：</div>
+      <input placeholder="例如：陈小陌" class="inputType" bindinput="nameInput"></input>
+    </view>
+    <view class="preInputText">
+      <div class="name">学  号：</div>
+      <input placeholder="例如：20177890" class="inputType" bindinput="studentInput"></input>
+    </view>
+    <view class="preInputText">
+      <div class="name">手机号：</div>
+      <input placeholder="例如：13784197113" class="inputType" bindinput="phoneInput"></input>
+    </view>
+    <block wx:if="{{isFind==true}}">
+      <view class="user-info">
+        <image src="{{userFind.head_img}}"></image>
+        <text class="user-name">{{userFind.name}}</text>
+        <text>{{userFind.phone}}</text>
+      </view>
+    </block>
+    <view class="button" hover-class="none" hover-stop-propagation="false">
+      <view bindtap="submit" class="adminSubmit">提  交</view>
+    </view>
+  </view>
+</view>

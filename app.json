@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/classroomIndex/classroomIndex",
+    "pages/bindInfo/bindInfo",
+    "pages/roomInfo/roomInfo",
+    "pages/roomDateInfo/roomDateInfo",
+    "pages/roomDayInfo/roomDayInfo",
+    "pages/roomApplyInfo/roomApplyInfo",
+    "pages/admin/admin",
+    "pages/user/user",
+    "pages/userupdate/userupdate"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#eb4450",
+    "navigationBarTitleText": "数统空教室申请",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#000000",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "selectedIconPath": "/img/home-2.png",
+        "iconPath": "/img/home-1.png"
+      },
+      {
+        "pagePath": "pages/admin/admin",
+        "text": "管理",
+        "selectedIconPath": "/img/setting-2.png",
+        "iconPath": "/img/setting-1.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "selectedIconPath": "/img/my-2.png",
+        "iconPath": "/img/my-1.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,8 @@
+<view style="width: 100%; height: 30px;"></view>
+<view class="head">请点击以下教室进入申请</view>
+
+<view class="body">
+      <view bindtap="roomInfo" class="item" wx:for="{{room_list}}" wx:key="name"  data-roomName="{{item.name}}" data-roomID="{{item.id}}">
+            <view>{{item.name}}</view>
+      </view>
+</view>

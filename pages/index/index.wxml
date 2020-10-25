@@ -1,0 +1,5 @@
+
+<view style="width: 100%; height: 30px;"></view>
+<view class="head">数统科技楼教室申请</view>
+
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="enter"  hover-class="btn-hover">进入</button>

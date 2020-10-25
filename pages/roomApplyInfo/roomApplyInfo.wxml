@@ -1,0 +1,59 @@
+<view style="width: 100%; height: 30px;"></view>
+<view class="head">教室{{record.room_name}}使用情况</view>
+<view class="describe">（{{date}}  星期{{weekday}}  {{record.apply_time}}）</view>
+<view class="msg-info" hover-class="none" hover-stop-propagation="false">
+  <!-- 空闲状态 -->
+  <block wx:if="{{record.apply_status==0}}">
+    <view class="" hover-class="none" hover-stop-propagation="false">
+      <view class="title">
+        <p class="msg-res">申请理由</p>
+      </view>
+      <view class="preInputText">
+        <textarea placeholder=" 请填写申请理由，字数最大限制为140" class="inputType" bindinput="reasonInput"></textarea>
+      </view>
+      <button bindtap="submit" class="submit-button" hover-class="plain-hover">提交</button>
+    </view>
+    <view class="tips">
+      <p class="tips-strong">温馨提示:</p>
+      此教室在此时间段空闲，请填写申请理由进行申请，待管理员审批后即可使用
+    </view>
+  </block>
+  <!-- 申请中。。。 -->
+  <block wx:if="{{record.apply_status==1}}">
+    <view class="msg-body" hover-class="none" hover-stop-propagation="false">
+      <view class="msg-infomation" hover-class="none" hover-stop-propagation="false">
+        <view class="explain">
+          此教室正在被申请，申请人为：
+          <p class="strong-info">{{record.user_name}}</p>
+        </view>
+         <p class="strong-info">请联系管理员及时审批！</p>
+        <view class="applyReason">
+          <div class="strong-info">申请理由：</div>
+          <p>{{record.apply_reason}}</p>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- 已申请成功 -->
+  <block wx:if="{{record.apply_status==2}}">
+    <view class="msg-body" hover-class="none" hover-stop-propagation="false">
+      <view class="msg-infomation" hover-class="none" hover-stop-propagation="false">
+        <view class="explain">
+          <view class="" hover-class="none" hover-stop-propagation="false">
+            此教室已被申请，申请人为：
+            <p class="strong-info">{{record.user_name}}</p>
+          </view>
+          <view class="" hover-class="none" hover-stop-propagation="false">
+            已被管理员
+            <p class="strong-info">{{disposeBy.name}}</p>
+            同意
+          </view>
+        </view>
+        <view class="applyReason">
+          <div class="strong-info">申请理由：</div>
+          <p>{{record.apply_reason}}</p>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,69 @@
+/* 设置一下背景图片 */
+/* .page{
+  background-image: url('../apply-classroom-minipro/img/sz.jpeg');
+  background-size: cover;
+} */
+.head {
+  color: black;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.title{
+    font-weight: 700;
+}
+.inputType{
+  border: 1px solid black;
+  margin-bottom: 30px;
+  font-size: 12px;
+  padding: 0 5px;
+}
+
+.adminAbout {
+  width: 90%;
+  height: 280px;
+  margin-left: 5%;
+  margin-top: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  box-shadow: 2px 1px 1px 1px #ccceee;
+}
+.preInputText{
+  margin-top: 10px;
+  width: 90%;
+  margin-left: 5%;
+}
+.inputType{
+  border: 1px solid #aaaaaa;
+  height: 30px;
+  border-radius: 6px;
+  margin-top: 10px;
+  width: auto;
+  text-align: justify;
+  font-size: 16px;
+  box-shadow: 2px 1px 1px 1px #ccceee;
+}
+
+.button{
+  display: flex;
+  width: auto;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+.name{
+  font-weight: bolder;
+  color: #de5490;
+}
+.adminSubmit {
+  text-align: center;
+  width:90%;
+  height: 30px;
+  border: 1px solid #abbcbc;
+  box-shadow: 2px 1px 1px 1px #333456;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: #AAAAAA;
+  margin-top: 30px;
+}

@@ -1,0 +1,11 @@
+/* pages/components/applyInfo/applyInfo.wxss */
+
+
+.title-header{
+    font-weight: bold;
+    color: #de5490;
+  }
+
+  .apply-info{
+    padding: 0 10px;
+  }

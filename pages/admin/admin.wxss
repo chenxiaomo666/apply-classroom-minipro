@@ -1,0 +1,211 @@
+/* pages/index/index.wxss */
+page{
+  height:100%
+  }
+
+.head {
+  color: black;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.enter{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  width:50px;
+  height: 50px;
+  border: 1px solid #abbcbc;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-top: 200px;
+}
+
+.space {
+  /* margin-top: 15px; */
+  border-top: #ccceee;
+  border: 1px solid #eeeeee;
+  margin: 5px;
+  /* box-shadow: 2px 0px 1px 1px #cbcbd1; */
+  
+}
+.title-box{
+  padding: 2px;
+  font-weight: bold;
+  border-left: 5px solid #de4450;
+}
+.piece {
+  border: 1px solid #cccccc;
+  width: 90%;
+  padding: 3px;
+  margin-left: 5%;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 1px 1px 1px #abbcbc;
+}
+.style-link{
+  color: #de4450;
+}
+.agreeContain {
+  width: 90%;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.advise {
+  width: 25%;
+  margin-left: 18%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  height: 22px;
+  border: 1px solid #abbcbc;
+  box-shadow: 2px 1px 1px 1px #abbcbc;
+  border-radius: 6px;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.space .user-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 69px;
+  width: 100%;
+  
+  margin-top: 20px;
+
+  background-color: #f5f5f5;
+
+  
+}
+
+.space .user-info image {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  vertical-align: middle;
+}
+
+.space .user-info text {
+  font-size: 14px;
+  margin-left: 10px;
+}
+.title-header{
+  font-weight: bold;
+  /* color: #de5490; */
+  color: #333333;
+}
+.body{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.adminAbout {
+  width: 90%;
+  height: 270px;
+  margin-left: 5%;
+  margin-top: 5px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  box-shadow: 2px 1px 1px 1px #ba97aa;
+}
+.name{
+  font-size: 16px;
+  font-weight: bolder;
+  color: #de5490;
+}
+.preInputText{
+  margin-top: 10px;
+  width: 90%;
+  margin-left: 5%;
+}
+.inputType{
+  border: 1px solid #aaaaaa;
+  padding: 0px 10px;
+  height: 45px;
+  border-radius: 6px;
+  margin-top: 10px;
+  width: auto;
+  text-align: justify;
+  font-size: 16px;
+  box-shadow: 2px 1px 1px 1px #abbcbc;
+}
+
+.button{
+  display: flex;
+  width: auto;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+.adminSubmit {
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #abbcbc;
+  box-shadow: 2px 1px 1px 1px #abbcbc;
+  border-radius: 10px;
+  font-size: 20px;
+}
+.tips{
+  font-size: 12px;
+  margin-top: 10px;
+  color: #aaaaaa;
+}
+.classSubmit {
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  height: 50px;
+  border: 1px solid #abbcbc;
+  background-color: #dddddd;
+
+}
+
+.item {
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  height: 50px;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #abbcbc;
+  border-radius: 10px;
+}
+
+.roomList {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.trueDel {
+  margin-left: 20px;
+  width: 42px;
+  height: 22px;
+  text-align: center;
+  border: 1px solid #abbcbc;
+  border-radius: 6px;
+  justify-content: center;
+  align-items:center;
+  background-color: #de4450;
+}
+
+.title{
+  color: #de4450;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+  border-bottom: 3px solid #de4450;
+}
+.apply-info{
+  padding: 0 10px;
+  color: #666666;
+}

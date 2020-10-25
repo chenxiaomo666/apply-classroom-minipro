@@ -1,0 +1,22 @@
+<view class="head">
+  <text class="title">信息修改</text>
+</view>
+<view class="body" hover-class="none" hover-stop-propagation="false">
+  <view class="adminAbout">
+    <view class="preInputText">
+      <div class="name">姓  名：</div>
+      <input class="inputType" value="{{userInfo.name}}" bindinput="nameInput"></input>
+    </view>
+    <view class="preInputText">
+      <div class="name">学  号：</div>
+      <input maxlength='10' value="{{userInfo.student_id}}" class="inputType" bindinput="studentInput"></input>
+    </view>
+    <view class="preInputText">
+      <div class="name">电 话：</div>
+      <input maxlength='11' value="{{userInfo.phone}}" class="inputType" bindinput="phoneInput"></input>
+    </view>
+    <view class="button" bindtap="submit"  hover-stop-propagation="false">
+      <button  bindtap="submit" class="adminSubmit" hover-class="btn_hover" disabled='{{isDisabled}}'>修  改</button >
+    </view>
+  </view>
+</view>

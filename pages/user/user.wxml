@@ -1,0 +1,108 @@
+<!-- pages/user/user.wxml -->
+<view class="bodybox" hover-class="none" hover-stop-propagation="false">
+    <!-- 我的信息展示模块 -->
+    <view class="title-header" hover-class="none" hover-stop-propagation="false">
+        <view class="" hover-class="none" hover-stop-propagation="false">
+            <!-- 头像 -->
+            <view class="headercontent" hover-class="none" hover-stop-propagation="false">
+                <view class="userinfo" bindtap="bindViewTap">
+                    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+                        获取头像昵称
+                    </button>
+                    <block wx:else>
+                        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.head_img}}" mode="cover"></image>
+                        <!-- 右侧展示栏 -->
+                        <view class="rightBox" hover-class="none" hover-stop-propagation="false">
+                            <!-- 姓名 -->
+                            <view class="wxtitle" hover-class="none" hover-stop-propagation="false">
+                                <view class="user username" hover-class="none" hover-stop-propagation="false">
+                                    {{userInfo.name}}
+                                </view>
+                            </view>
+                            <!-- 学号 -->
+                            <view class="user student_id" hover-class="none" hover-stop-propagation="false">
+                                学号：{{userInfo.student_id}}
+                            </view>
+                            <!-- 学号 -->
+                            <!-- <view class="user student_id" hover-class="none" hover-stop-propagation="false">电话：{{userInfo.phone}}</view> -->
+                        </view>
+                        <!-- 修理icon -->
+                        <view class="imgstyle rightset" hover-class="none" hover-stop-propagation="false">
+                            <image class="image " src="../../img/erweima2.png" alt=""></image>
+                        </view>
+                        <!-- <view class="iconfont icon-xiuli rightset"></view> -->
+                        <!-- 向右 -->
+                        <view class="iconfont icon-xiangyou rightsetting"></view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="conbox" bindtap='tipsInfo' hover-class="none" hover-stop-propagation="false">
+        <!-- 支付模块 -->
+        <view class="paybox" hover-class="none" hover-stop-propagation="false">
+            <view class="imgstyle" hover-class="none" hover-stop-propagation="false">
+                <image class="image" src="../../img/zhifu.png" alt=""></image>
+            </view>
+            <!-- <p class="iconfont icon-zhifu" hover-class="none" hover-stop-propagation="false"></p> -->
+            <p class="title" hover-class="none" hover-stop-propagation="false">支付</p>
+            <!-- 向右 -->
+            <view class="iconfont icon-xiangyou right"></view>
+        </view>
+        <!-- 更多模块 -->
+        <view class="morebox" hover-class="none" hover-stop-propagation="false">
+            <!-- 收藏 -->
+            <view class="settingbox" hover-class="none" hover-stop-propagation="false">
+                <view class="imgstyle" hover-class="none" hover-stop-propagation="false">
+                    <image class="image" src="../../img/shouchang.png" alt=""></image>
+                </view>
+                <!-- <p class="iconfont icon-shoucang" hover-class="none" hover-stop-propagation="false"></p> -->
+                <p class="title" hover-class="none" hover-stop-propagation="false">收藏</p>
+                <!-- 向右 -->
+                <view class="iconfont icon-xiangyou right"></view>
+            </view>
+            <!-- 相册 -->
+            <view class="settingbox" hover-class="none" hover-stop-propagation="false">
+                <view class="imgstyle" hover-class="none" hover-stop-propagation="false">
+                    <image class="image" src="../../img/xiangce.png" alt=""></image>
+                </view>
+                <!-- <p class="iconfont icon-xiangce" hover-class="none" hover-stop-propagation="false"></p> -->
+                <p class="title" hover-class="none" hover-stop-propagation="false">相册</p>
+                <!-- 向右 -->
+                <view class="iconfont icon-xiangyou right"></view>
+            </view>
+            <!-- 卡包 -->
+            <view class="settingbox" hover-class="none" hover-stop-propagation="false">
+                <view class="imgstyle" hover-class="none" hover-stop-propagation="false">
+                    <image class="image" src="../../img/kabao.png" alt=""></image>
+                </view>
+                <!-- <p class="iconfont icon-kabao2" hover-class="none" hover-stop-propagation="false"></p> -->
+                <p class="title" hover-class="none" hover-stop-propagation="false">卡包</p>
+                <!-- 向右 -->
+                <view class="iconfont icon-xiangyou right"></view>
+            </view>
+            <!-- 表情 -->
+            <view class="settingbox" hover-class="none" hover-stop-propagation="false">
+                <view class="imgstyle" hover-class="none" hover-stop-propagation="false">
+                    <image class="image" src="../../img/biaoqing.png" alt=""></image>
+                </view>
+                <!-- <p class="iconfont icon-biaoqing" hover-class="none" hover-stop-propagation="false"></p> -->
+                <p class="title" hover-class="none" hover-stop-propagation="false">表情</p>
+                <!-- 向右 icon -->
+                <view class="iconfont icon-xiangyou right"></view>
+            </view>
+        </view>
+        <!-- 设置 -->
+        <view class="settingbox" hover-class="none" hover-stop-propagation="false">
+            <view class="imgstyle" hover-class="none" hover-stop-propagation="false">
+                <image class="image" src="../../img/shezhi.png" alt=""></image>
+            </view>
+            <!-- <p class="iconfont icon-shezhi" hover-class="none" hover-stop-propagation="false"></p> -->
+            <p class="title" hover-class="none" hover-stop-propagation="false">设置</p>
+            <!-- 向右 -->
+            <view class="iconfont icon-xiangyou right"></view>
+        </view>
+    </view>
+    <!-- 温馨提示 -->
+    <view class="tips">【温馨提示】：点击头像可修改个人信息，此界面仅支持此功能，未来将解锁更多功能，敬请期待！</view>
+</view>

@@ -1,0 +1,31 @@
+<!--pages/components/applyInfo/applyInfo.wxml-->
+<text>pages/components/applyInfo/applyInfo.wxml</text>
+
+
+<view class="" hover-class="none" hover-stop-propagation="false">
+    <!-- 申请人样式 -->
+    <view>
+        <view class="title-header">
+        申请人:
+        </view>
+        <view class="apply-info" hover-class="none" hover-stop-propagation="false">
+        {{item.user_name}}
+        </view>
+    </view>
+    <!-- 时间 -->
+    <view>
+        <view class="title-header" hover-class="none" hover-stop-propagation="false">
+            时间地点：
+        </view >
+        <view  class="apply-info" selectable="false" space="false" decode="false">
+            {{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}
+        </view>
+    </view>
+    <!-- 申请理由 -->
+<view class="">
+        <view class="title-header">申请理由：</view>
+        <view  class="apply-info" hover-class="none" hover-stop-propagation="false">
+            {{item.apply_reason}}
+        </view>
+    </view>
+</view>

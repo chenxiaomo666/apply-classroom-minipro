@@ -1,0 +1,79 @@
+/* 设置一下背景图片 */
+/* .page{
+  background-image: url('../apply-classroom-minipro/img/sz.jpeg');
+  background-size: cover;
+} */
+.head {
+    color: black;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .title{
+      font-weight: 700;
+  }
+
+  .adminAbout {
+    width: 90%;
+    height: 300px;
+    margin-left: 5%;
+    margin-top: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    box-shadow: 2px 1px 1px 1px #ba97aa;
+  }
+  .preInputText{
+    margin-top: 10px;
+    width: 90%;
+    margin-left: 5%;
+  }
+  .name{
+    font-weight: bolder;
+    color: #de5490;
+    font-size: 17px;
+  }
+
+  .inputType{
+    margin-bottom: 30px;
+    font-size: 16px;
+    padding: 0 5px;
+    border: 1px solid #cccccc;
+    height: 36px;
+    border-radius: 6px;
+    margin-top: 10px;
+    width: auto;
+    text-align: justify;
+    background-color: #ffffff;
+    color: #656565;
+  }
+  
+  .button{
+    display: flex;
+    width: auto;
+    justify-content: space-around;
+    margin-top: 30px;
+    font-weight: 500;
+  }
+
+  .adminSubmit {
+    margin-top: 20px;
+    width: 60%;
+    height: 40px;
+    background-color: #dddddd;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-left: 20%;
+    margin-bottom: 10px;
+    color: #333333;
+  }
+  .btn_hover{
+    position: relative;
+    top: 3rpx;
+    font-weight: 800;
+    box-shadow:0px 0px 10px #bbbec4 inset;  
+  }

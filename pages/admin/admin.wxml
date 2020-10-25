@@ -1,0 +1,311 @@
+<!-- <view style="width: 100%; height: 15px;"></view> -->
+<block wx:if="{{userID==''}}">
+  <view class="head">请您先登录</view>
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="enter">登录</button>
+</block>
+<!-- 管理员用户 -->
+<block wx:if="{{userInfo.is_admin==1}}">
+<Tabs class="tabs" tabs='{{tabs}}' bindtabsItemChange="handleTabsItemChange">
+  <!-- 我的申请 -->
+  <block wx:if="{{tabs[0].isActive}}">
+    <block wx:if="{{userID!=''}}">
+      <view class="space">
+        <view class='title-box'>【申请中】</view>
+        <view class="piece" wx:for="{{applying}}" wx:key="name">
+          <view>
+            <view class="title-header" hover-class="none" hover-stop-propagation="false">
+              申请时间段：
+            </view >
+            <view class="apply-info" selectable="false" space="false" decode="false">
+              {{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}
+            </view>
+          </view>
+
+          <view class="">
+            <view class="title-header">申请理由：</view>
+            <view class="apply-info" hover-class="none" hover-stop-propagation="false">
+              {{item.apply_reason}}
+            </view>
+          </view >
+          <view class="title-header">待审批</view>
+        </view>
+        <!-- <view class="piece"  hover-class="none" hover-stop-propagation="false">
+          您当前没有正在申请教室，<p class="style-link">去申请</p>
+        </view> -->
+      </view>
+      <view class="space">
+        <view class='title-box'>【申请成功】</view>
+        <view class="piece" wx:for="{{applyed}}" wx:key="name">
+          <view>
+            <view class="title-header" hover-class="none" hover-stop-propagation="false">
+              申请时间段：
+            </view >
+            <view  class="apply-info" selectable="false" space="false" decode="false">
+              {{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}
+            </view>
+          </view>
+          <view class="">
+            <view class="title-header">申请理由：</view>
+            <view  class="apply-info" hover-class="none" hover-stop-propagation="false">
+              {{item.apply_reason}}
+            </view>
+          </view>
+          <view class="" hover-class="none" hover-stop-propagation="false">
+            <view class="title-header">审批人：</view>
+            <view  class="apply-info">{{item.dispose_name}}</view>
+          </view>
+          <!-- <view class="title-header">申请成功</view> -->
+        </view>
+      </view>
+      <view class="space">
+        <view class='title-box'>【申请失败】</view>
+        <view class="piece" wx:for="{{applyFail}}" wx:key="name">
+        <!-- 时间 -->
+          <view>
+            <view class="title-header" hover-class="none" hover-stop-propagation="false">
+              申请时间段：
+            </view >
+            <view  class="apply-info" selectable="false" space="false" decode="false">
+              {{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}
+            </view>
+          </view>
+          <!-- 申请理由 -->
+          <view class="">
+            <view class="title-header">申请理由：</view>
+            <view  class="apply-info" hover-class="none" hover-stop-propagation="false">
+              {{item.apply_reason}}
+            </view>
+          </view>
+          <view class="" hover-class="none" hover-stop-propagation="false">
+            <view class="title-header">审批人：</view>
+            <view  class="apply-info">{{item.dispose_name}}</view>
+          </view>
+          <!-- <view class="title-header">申请失败</view> -->
+        </view>
+      </view>
+    </block>
+  </block>
+  <!-- 所有申请 -->
+  <block wx:elif="{{tabs[1].isActive}}">
+    <!-- <block wx:if="{{userInfo.is_admin==1}}"> -->
+    <view class="space">
+      <view class='title-box'>新的申请信息</view>
+      <view class="piece" wx:for="{{needDispose}}" wx:key="name">
+      <!-- 申请人样式 -->
+        <view>
+          <view class="title-header">
+          申请人:
+          </view>
+          <view class="apply-info" hover-class="none" hover-stop-propagation="false">
+            {{item.user_name}}
+          </view>
+        </view>
+        <!-- 时间地点 -->
+          <view>
+            <view class="title-header" hover-class="none" hover-stop-propagation="false">
+              时间地点：
+            </view >
+            <view  class="apply-info" selectable="false" space="false" decode="false">
+              {{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}
+            </view>
+          </view>
+          <!-- 申请理由 -->
+          <view class="">
+            <view class="title-header">申请理由：</view>
+            <view  class="apply-info" hover-class="none" hover-stop-propagation="false">
+              {{item.apply_reason}}
+            </view>
+          </view>
+
+        <view class="agreeContain">
+          <view class="advise" bindtap="agree" data-recordID="{{item.record_id}}">同意</view>
+          <view class="advise" bindtap="disagree" data-recordID="{{item.record_id}}">不同意</view>
+        </view>
+      </view>
+    </view>
+    <view class="space">
+      <view class='title-box'>所有已申请：</view>
+      <view class="piece" wx:for="{{allApplyed}}" wx:key="name">
+              <!-- 申请人样式 -->
+        <view>
+          <view class="title-header">
+          申请人:
+          </view>
+          <view class="apply-info" hover-class="none" hover-stop-propagation="false">
+            {{item.user_name}}
+          </view>
+        </view>
+        <!-- 时间 -->
+          <view>
+            <view class="title-header" hover-class="none" hover-stop-propagation="false">
+              时间地点：
+            </view >
+            <view  class="apply-info" selectable="false" space="false" decode="false">
+              {{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}
+            </view>
+          </view>
+          <!-- 申请理由 -->
+          <view class="">
+            <view class="title-header">申请理由：</view>
+            <view  class="apply-info" hover-class="none" hover-stop-propagation="false">
+              {{item.apply_reason}}
+            </view>
+          </view>
+          <!-- 审批人 -->
+           <view class="">
+            <view class="title-header">审批人：</view>
+            <view  class="apply-info" hover-class="none" hover-stop-propagation="false">
+              {{item.dispose_name}}
+            </view>
+          </view>
+          <!-- 审批状态： -->
+          <!-- <view >
+            <view class="title-header">审批状态：</view>
+            <view  class="apply-info" >
+              申请成功
+            </view>
+          </view> -->
+      </view>
+    </view>
+    <!-- </block> -->
+  </block>
+  <!-- 教室信息 -->
+  <block wx:elif="{{tabs[3].isActive}}">
+    <view class="space">
+      <view class='title-box'>【当前教室列表】</view>
+      <view class="item" wx:for="{{optionRoomList}}" wx:key="name">
+        <view class="roomList">
+          <view>{{item.name}}</view>
+          <view class="trueDel" bindtap="roomDel" data-roomid="{{item.id}}">删除</view>
+        </view>
+      </view>
+      <view>
+        <view class='title-box'>【添加教室】</view>
+        <view class="preInputText">
+          <input placeholder="例如：5054" class="inputType" bindinput="roomInput"></input>
+        </view>
+        <button bindtap="classAdd" class="classSubmit">添加</button>
+      </view>
+    </view>
+  </block>
+  <!-- 新增管理员 -->
+  <!-- hsx -->
+  <block wx:elif="{{tabs[2].isActive}} ">
+    <view class="space">
+      <view class="body" hover-class="none" hover-stop-propagation="false">
+        <view class="adminAbout">
+          <view class="preInputText">
+            <div class="name">姓    名：</div>
+            <input placeholder="例如：陈小陌" class="inputType" bindinput="nameInput"></input>
+          </view>
+          <view class="preInputText">
+            <div class="name">手机号：</div>
+            <input placeholder="例如：13784197113" class="inputType" bindinput="phoneInput"></input>
+          </view>
+          <view class="button" hover-class="none" hover-stop-propagation="false">
+            <view bindtap="userFind" class="adminSubmit">查 询</view>
+            <view bindtap="adminAdd" class="adminSubmit">添 加</view>
+          </view>
+        </view>
+      </view>
+      <view class="tips">【温馨提示】：可凭借姓名或手机号查询（仅支持全名查询），并添加其为新管理员</view>
+      <view class="" hover-class="none">
+      <!-- 查询，弹出信息 -->
+        <block wx:if="{{isFind==true}}">
+            <view class="user-info">
+              <image src="{{userFind.head_img}}"></image>
+              <text class="user-name">{{userFind.name}}</text>
+              <text >{{userFind.student_id}}</text>
+              <text>{{userFind.phone}}</text>
+            </view>
+        </block>
+      </view>
+    </view>
+  </block>
+</Tabs>
+</block>
+<!-- 普通用户 -->
+<block wx:if="{{userInfo.is_admin == 0}}">
+  <block wx:if="{{userID!=''}}">
+    <view class="title">我的申请记录</view>
+    <view class="content" hover-class="none" hover-stop-propagation="false">
+    <!-- 申请中 -->
+      <view class="space">
+        <view class='title-box'>【申请中】</view>
+        <view class="piece" wx:for="{{applying}}" wx:key="name">
+          <view>
+            <view class="title-header" hover-class="none" hover-stop-propagation="false">
+              申请时间段：
+            </view >
+            <view class="apply-info" selectable="false" space="false" decode="false">
+              {{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}
+            </view>
+          </view>
+
+          <view class="">
+            <view class="title-header">申请理由：</view>
+            <view class="apply-info" hover-class="none" hover-stop-propagation="false">
+              {{item.apply_reason}}
+            </view>
+          </view >
+          <view class="title-header">待审批</view>
+        </view>
+        <!-- <view class="piece"  hover-class="none" hover-stop-propagation="false">
+          您当前没有正在申请教室，<p class="style-link">去申请</p>
+        </view> -->
+      </view>
+      <!-- 成功 -->
+      <view class="space">
+        <view class='title-box'>【申请成功】</view>
+        <view class="piece" wx:for="{{applyed}}" wx:key="name">
+          <view>
+            <view class="title-header" hover-class="none" hover-stop-propagation="false">
+              申请时间段：
+            </view >
+            <view  class="apply-info" selectable="false" space="false" decode="false">
+              {{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}
+            </view>
+          </view>
+          <view class="">
+            <view class="title-header">申请理由：</view>
+            <view  class="apply-info" hover-class="none" hover-stop-propagation="false">
+              {{item.apply_reason}}
+            </view>
+          </view>
+          <view class="" hover-class="none" hover-stop-propagation="false">
+            <view class="title-header">审批人：</view>
+            <view  class="apply-info">{{item.dispose_name}}</view>
+          </view>
+          <!-- <view class="title-header">申请成功</view> -->
+        </view>
+      </view>
+      <!-- 失败 -->
+      <view class="space">
+        <view class='title-box'>【申请失败】</view>
+        <view class="piece" wx:for="{{applyFail}}" wx:key="name">
+        <!-- 时间 -->
+          <view>
+            <view class="title-header" hover-class="none" hover-stop-propagation="false">
+              申请时间段：
+            </view >
+            <view  class="apply-info" selectable="false" space="false" decode="false">
+              {{item.apply_date}}  星期{{item.weekday}}  {{item.apply_time}}  教室{{item.room_name}}
+            </view>
+          </view>
+          <!-- 申请理由 -->
+          <view class="">
+            <view class="title-header">申请理由：</view>
+            <view  class="apply-info" hover-class="none" hover-stop-propagation="false">
+              {{item.apply_reason}}
+            </view>
+          </view>
+          <view class="" hover-class="none" hover-stop-propagation="false">
+            <view class="title-header">审批人：</view>
+            <view  class="apply-info">{{item.dispose_name}}</view>
+          </view>
+          <!-- <view class="title-header">申请失败</view> -->
+        </view>
+      </view>
+    </view>
+  </block>
+</block>
