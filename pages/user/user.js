@@ -5,6 +5,9 @@ const app = getApp()
 Page({
   data: {
     userInfo: {},
+    nickName: '',
+    headImg: '',
+    sex: '',
     hasUserInfo: false,
     ischange: true,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -15,8 +18,15 @@ Page({
       url: '../userupdate/userupdate'
     })
   },
-  onLoad: function () {
+
+  onLoad: function (e) {
+    // var userInfo = e.detail.userInfo;
+    // var nickName = userInfo.nickName;
+    // var headImg = userInfo.avatarUrl;
+    // var sex = userInfo.gender;
+
     this.getUserInfo();
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -48,6 +58,7 @@ Page({
   getUserInfo: function (e) {
     var that = this;
     var userID = wx.getStorageSync('user_id');
+
     if (userID != '') {
       wx.request({
         url: app.globalData.serveHost + '/cxm/user/record',
@@ -68,9 +79,26 @@ Page({
           })
         }
       })
+      app.globalData.isLogin == true
+    }
+    //  else {
+    //   var nickName = userInfo.nickName;
+    //   var headImg = userInfo.avatarUrl;
+    //   var sex = userInfo.gender;
+    //   wx.navigateTo({
+    //     url: '/pages/bindInfo/bindInfo?nickName=' + nickName + '&openid=' + res.data.open_id + '&headImg=' + headImg + '&sex=' + sex, // 进去绑定信息页面
+    //   })
+    // }
+  },
+  isLogin(e) {
+    if (app.globalData.isLogin == false) {
+      wx.showToast({
+        title: '若未登录，请前往首页登录',
+        icon: "none",   //success,loading,none
+        duration: 1500,
+      })
     }
   },
-  
   tipsInfo: function (e) {
     wx.showToast({
       title: '功能尚未开发,敬请期待(ㄒoㄒ)',
@@ -81,11 +109,24 @@ Page({
 
   // * 生命周期函数--监听页面显示
   onShow: function () {
+    // 获取用户数据；
+    this.getUserInfo();
+    // // 若未登录，则返回首页；
+    // this.isLogin();
     if (app.globalData.Flag) {
       app.globalData.Flag = false;
       this.getUserInfo();   //调用接口获取数据
     }
   },
+    /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    // this.getUserInfo();
+    // 若未登录，则返回首页；
+    this.isLogin();
+  },
 })
+
 
 

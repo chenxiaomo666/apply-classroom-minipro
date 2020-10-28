@@ -41,6 +41,7 @@ page{
   padding: 3px;
   margin-left: 5%;
   margin-top: 10px;
+  background-color: #f6f6f6;
   border-radius: 5px;
   box-shadow: 2px 1px 1px 1px #abbcbc;
 }
@@ -81,7 +82,12 @@ page{
 
   
 }
-
+.apply-imge{
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  vertical-align: middle;
+}
 .space .user-info image {
   width: 40px;
   height: 40px;
@@ -95,8 +101,15 @@ page{
 }
 .title-header{
   font-weight: bold;
-  /* color: #de5490; */
-  color: #333333;
+  color: #555555;
+}
+.apply-status{
+  float: right;
+  color: #de4450;
+  margin-top: 5px;
+  margin-right: 10px;
+  font-weight: 600;
+  font-size: 14px;
 }
 .body{
   width: 100%;
@@ -110,6 +123,7 @@ page{
   margin-top: 5px;
   border: 1px solid #cccccc;
   border-radius: 6px;
+  background-color: #f5f5f5;
   box-shadow: 2px 1px 1px 1px #ba97aa;
 }
 .name{
@@ -127,9 +141,10 @@ page{
   padding: 0px 10px;
   height: 45px;
   border-radius: 6px;
-  margin-top: 10px;
+  margin-top: 20px;
   width: auto;
   text-align: justify;
+  background-color: #f5f5f5;
   font-size: 16px;
   box-shadow: 2px 1px 1px 1px #abbcbc;
 }
@@ -175,26 +190,42 @@ page{
   margin-left: 5%;
   margin-top: 15px;
   margin-bottom: 10px;
+  background-color: #f5f5f5;
   border: 1px solid #abbcbc;
   border-radius: 10px;
 }
 
 .roomList {
+  float: right;
+  width: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
-
-.trueDel {
-  margin-left: 20px;
-  width: 42px;
-  height: 22px;
-  text-align: center;
-  border: 1px solid #abbcbc;
-  border-radius: 6px;
+.item-name{
+  width: 60%;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
   justify-content: center;
-  align-items:center;
-  background-color: #de4450;
+  align-items: center;
+}
+.trueDel {
+  opacity: 0.9;
+  margin-left: 20px;
+  width: 40%;
+  height: 50px;
+  text-align: center;
+  border-left: 1px solid #abbcbc;
+  border-radius: 0px 10px 10px 0px;
+  background-color: #de4e54;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: hangul-consonant;
 }
 
 .title{

@@ -95,6 +95,9 @@
         <view>
           <view class="title-header">
           申请人:
+          <view class="apply-status" >
+            审批中
+          </view>
           </view>
           <view class="apply-info" hover-class="none" hover-stop-propagation="false">
             {{item.user_name}}
@@ -130,7 +133,12 @@
         <view>
           <view class="title-header">
           申请人:
+          <view class="apply-status" >
+            申请成功
           </view>
+          </view>
+          
+
           <view class="apply-info" hover-class="none" hover-stop-propagation="false">
             {{item.user_name}}
           </view>
@@ -175,8 +183,8 @@
       <view class='title-box'>【当前教室列表】</view>
       <view class="item" wx:for="{{optionRoomList}}" wx:key="name">
         <view class="roomList">
-          <view>{{item.name}}</view>
-          <view class="trueDel" bindtap="roomDel" data-roomid="{{item.id}}">删除</view>
+          <view class="item-name">{{item.name}}</view>
+          <view class="trueDel" bindtap="roomDel" data-roomid="{{item.id}}">删 除</view>
         </view>
       </view>
       <view>
@@ -227,7 +235,7 @@
 <!-- 普通用户 -->
 <block wx:if="{{userInfo.is_admin == 0}}">
   <block wx:if="{{userID!=''}}">
-    <view class="title">我的申请记录</view>
+    <view class="title" open-type="getUserInfo" bindgetuserinfo="getUserInfo">我的申请记录</view>
     <view class="content" hover-class="none" hover-stop-propagation="false">
     <!-- 申请中 -->
       <view class="space">

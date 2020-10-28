@@ -15,15 +15,14 @@
       <div class="name">手机号：</div>
       <input placeholder="例如：13784197113" class="inputType" bindinput="phoneInput"></input>
     </view>
-    <block wx:if="{{isFind==true}}">
-      <view class="user-info">
-        <image src="{{userFind.head_img}}"></image>
-        <text class="user-name">{{userFind.name}}</text>
-        <text>{{userFind.phone}}</text>
-      </view>
-    </block>
+     <view class="tips">
+      <p class="tips-strong">温馨提示:</p>
+      登录系统需填写个人资料！
+    </view>
+
     <view class="button" hover-class="none" hover-stop-propagation="false">
       <view bindtap="submit" class="adminSubmit">提  交</view>
     </view>
+
   </view>
 </view>

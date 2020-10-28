@@ -12,7 +12,7 @@ Page({
   },
 
   getUserInfo(e){
-    console.log("Enter the system");
+    // console.log(e.detail.userInfo);
     var that = this;
     wx.login({
       success(res) {
@@ -26,6 +26,7 @@ Page({
           method: "GET",
           success(res) {
             console.log(res.data)
+
             var isBind = res.data.is_bind;
             if(isBind){
               wx.setStorage({
@@ -55,7 +56,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // this.getUserInfo();
   },
 
   /**
@@ -69,7 +70,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // this.getUserInfo();
   },
 
   /**

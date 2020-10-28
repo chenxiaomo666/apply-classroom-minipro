@@ -6,11 +6,10 @@
             <!-- 头像 -->
             <view class="headercontent" hover-class="none" hover-stop-propagation="false">
                 <view class="userinfo" bindtap="bindViewTap">
-                    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
-                        获取头像昵称
-                    </button>
-                    <block wx:else>
-                        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.head_img}}" mode="cover"></image>
+                   <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+                    </button>  -->
+                    <block >
+                        <image bindtap="" class="userinfo-avatar" src="{{userInfo.head_img}}" mode="cover"></image>
                         <!-- 右侧展示栏 -->
                         <view class="rightBox" hover-class="none" hover-stop-propagation="false">
                             <!-- 姓名 -->
@@ -21,7 +20,7 @@
                             </view>
                             <!-- 学号 -->
                             <view class="user student_id" hover-class="none" hover-stop-propagation="false">
-                                学号：{{userInfo.student_id}}
+                               {{userInfo.student_id}}
                             </view>
                             <!-- 学号 -->
                             <!-- <view class="user student_id" hover-class="none" hover-stop-propagation="false">电话：{{userInfo.phone}}</view> -->

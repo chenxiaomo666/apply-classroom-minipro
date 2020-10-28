@@ -27,6 +27,7 @@ Page({
 
   submit() {
     var that = this;
+    app.globalData.isLogin = true;
     if (that.data.name == null) {
       wx.showToast({
         title: '姓名未填写！',
@@ -46,7 +47,7 @@ Page({
         duration: 2000,
       })
     } else {
-      console.log(that.data.openid);
+      console.log(that.data);
       wx.request({
         url: app.globalData.serveHost + '/cxm/user/upsert',
         method: "POST",
@@ -68,8 +69,12 @@ Page({
             wx.navigateTo({
               url: '/pages/classroomIndex/classroomIndex'
             })
+            // 从新刷新 我的 tab页 
+           app.globalData.Flag = true;
+           app.globalData.isLogin = true;
           }
-        }
+        },
+        
       })
     }
   },
@@ -78,6 +83,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
+
     this.setData({
       openid: options.openid,
       headImg: options.headImg,
@@ -90,7 +97,11 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.showToast({
+      title: '登录系统需填写个人资料！',
+      icon: "none",   //success,loading,none
+      duration: 2000,
+    })
   },
 
   /**

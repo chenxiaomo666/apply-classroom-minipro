@@ -19,6 +19,7 @@
 }
 .active{
     columns: #789787;
+    color: #de4460;
     border-bottom: 10rpx solid #de4460;
 }
 .tabs-content{

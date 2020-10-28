@@ -133,7 +133,7 @@ Page({
       method: "GET",
       data: {
         name: that.data.name,
-        studentid:that.data.student_id,
+        studentid: that.data.student_id,
         phone: that.data.phone
       },
       success(res) {
@@ -185,7 +185,7 @@ Page({
               icon: "success",   //success,loading,none
               duration: 2000,
             })
-          }else {
+          } else {
             wx.showToast({
               title: '添加失败！',
               icon: "none",   //success,loading,none
@@ -285,9 +285,10 @@ Page({
           },
           method: "GET",
           success(res) {
-            console.log(res.data)
             var isBind = res.data.is_bind;
             if (isBind) {
+              // 判断出，已登录！
+              app.globalData.isLogin == true
               wx.setStorage({
                 data: res.data.user_id,
                 key: 'user_id',
@@ -311,28 +312,36 @@ Page({
                 }
               })
             }
-            else {
-              var userInfo = e.detail.userInfo;
-              var nickName = userInfo.nickName;
-              var headImg = userInfo.avatarUrl;
-              var sex = userInfo.gender;
-              console.log(e.detail.userInfo);
-              console.log(userInfoStr);
-              wx.navigateTo({
-                url: '/pages/bindInfo/bindInfo?nickName=' + nickName + '&openid=' + res.data.open_id + '&headImg=' + headImg + '&sex=' + sex, // 进去绑定信息页面
-              })
-            }
+
           }
         })
       }
     })
   },
 
+  isLogin(e) {
+    if (app.globalData.isLogin == false) {
+      wx.showToast({
+        title: '若未登录，请前往首页登录',
+        icon: "none",   //success,loading,none
+        duration: 1500,
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this;
+    this.setData({
+      openid: options.openid,
+      headImg: options.headImg,
+      nickName: options.nickName,
+      sex: options.sex
+    });
+    // 获取用户数据；
+    this.getUserInfo();
+
     var userID = wx.getStorageSync('user_id');
     if (userID != '') {
       wx.request({
@@ -361,13 +370,23 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // this.getUserInfo();
+    // 若未登录，则返回首页；
+    this.isLogin();
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // 获取用户数据；
+    this.getUserInfo();
+
+    // 用于在用户信息绑定后，获取数据，渲染更新！
+    if (app.globalData.Flag) {
+      app.globalData.Flag = false;
+      this.getUserInfo();   //调用接口获取数据
+    }
     var that = this;
     var userID = wx.getStorageSync('user_id');
     if (userID != '') {
@@ -404,6 +423,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+
 
   },
 

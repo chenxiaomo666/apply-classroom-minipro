@@ -1,5 +1,12 @@
-
-<view style="width: 100%; height: 30px;"></view>
-<view class="head">数统科技楼教室申请</view>
-
-<button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="enter"  hover-class="btn-hover">进入</button>
+<view class="body" hover-class="none" hover-stop-propagation="false">
+    <view style="width: 100%; height: 30px;"></view>
+    <view class="head">数统科技楼教室申请</view>
+    <view class="centent">
+        <view class="logo" hover-class="none" hover-stop-propagation="false">
+            <image src="../../img/sxtj.jpg" class="bgimg"></image>
+        </view>
+    </view>
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="enter" hover-class="btn-hover">
+        Enter
+    </button>
+</view>
